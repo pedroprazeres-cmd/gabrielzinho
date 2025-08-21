@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organizador Semanal de Tarefas</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-calendar-check"></i> Organizador Semanal</h1>
+            <button class="add-task-btn" onclick="openModal()">
+                <i class="fas fa-plus"></i> Nova Tarefa
+            </button>
+        </header>
+
+        <div class="week-container">
+            <div class="day-column" data-day="segunda">
+                <h2>Segunda-feira</h2>
+                <div class="tasks-list" id="segunda-tasks"></div>
+            </div>
+            <div class="day-column" data-day="terca">
+                <h2>Terça-feira</h2>
+                <div class="tasks-list" id="terca-tasks"></div>
+            </div>
+            <div class="day-column" data-day="quarta">
+                <h2>Quarta-feira</h2>
+                <div class="tasks-list" id="quarta-tasks"></div>
+            </div>
+            <div class="day-column" data-day="quinta">
+                <h2>Quinta-feira</h2>
+                <div class="tasks-list" id="quinta-tasks"></div>
+            </div>
+            <div class="day-column" data-day="sexta">
+                <h2>Sexta-feira</h2>
+                <div class="tasks-list" id="sexta-tasks"></div>
+            </div>
+            <div class="day-column" data-day="sabado">
+                <h2>Sábado</h2>
+                <div class="tasks-list" id="sabado-tasks"></div>
+            </div>
+            <div class="day-column" data-day="domingo">
+                <h2>Domingo</h2>
+                <div class="tasks-list" id="domingo-tasks"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para criar/editar tarefas -->
+    <div id="taskModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="modal-title">Nova Tarefa</h2>
+            <form id="taskForm">
+                <div class="form-group">
+                    <label for="taskTitle">Título da Tarefa:</label>
+                    <input type="text" id="taskTitle" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="taskDescription">Descrição:</label>
+                    <textarea id="taskDescription" rows="3"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="taskDay">Dia da Semana:</label>
+                    <select id="taskDay" required>
+                        <option value="">Selecione um dia</option>
+                        <option value="segunda">Segunda-feira</option>
+                        <option value="terca">Terça-feira</option>
+                        <option value="quarta">Quarta-feira</option>
+                        <option value="quinta">Quinta-feira</option>
+                        <option value="sexta">Sexta-feira</option>
+                        <option value="sabado">Sábado</option>
+                        <option value="domingo">Domingo</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="taskPriority">Prioridade:</label>
+                    <select id="taskPriority">
+                        <option value="baixa">Baixa</option>
+                        <option value="media" selected>Média</option>
+                        <option value="alta">Alta</option>
+                    </select>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="button" onclick="closeModal()" class="btn-cancel">Cancelar</button>
+                    <button type="submit" class="btn-save">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
